@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: echo-staging
+  name: beta
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: echo-staging
+      app: beta
   template:
     metadata:
       labels:
-        app: echo-staging
+        app: beta
     spec:
       containers:
-        - name: echo-staging
+        - name: beta
           image: sreemaish/sample-app:node14
           ports:
             - name: http
@@ -23,7 +23,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: echo-staging
+  name: beta
   annotations:
     route-acl: "rand(100) lt 25"
 spec:
@@ -33,4 +33,4 @@ spec:
       protocol: TCP
       targetPort: http
   selector:
-    app: echo-staging
+    app: beta
