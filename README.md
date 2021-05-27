@@ -17,3 +17,5 @@ Marvel_k8s
  kubectl create -f ingress-canary.yaml
  
  Now map the domain in your /etc/hosts and run it on the browser, For every 10 runs it make a call to beta app.
+
+This can also be acheived through service mesh like Istio. Here, I used Nginx Ingress Controller to split traffic through weightage. 
