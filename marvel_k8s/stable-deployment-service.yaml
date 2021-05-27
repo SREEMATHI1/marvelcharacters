@@ -3,10 +3,15 @@ apiVersion: apps/v1
 metadata:
   name: stable
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: stable
+  strategy:
+    rollingUpdate:
+      maxSurge: 75%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
