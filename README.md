@@ -15,6 +15,12 @@ Marvel_k8s
  kubectl create -f ingress-stable.yaml
  
  kubectl create -f ingress-canary.yaml
+
+ helm create marvel-chart
+
+ tree ./marvel-chart
+ 
+ helm install marvel-chart
  
  Now map the domain in your /etc/hosts and run it on the browser, For every 10 runs it make a call to beta app.
 
