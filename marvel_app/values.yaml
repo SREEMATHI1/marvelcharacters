@@ -14,7 +14,7 @@ application:
   secretName:
   secretChecksum:
 hpa:
-  enabled: false
+  enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 50
