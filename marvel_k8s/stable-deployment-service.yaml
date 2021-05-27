@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: echo-prod
+  name: stable
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: echo-prod
+      app: stable
   template:
     metadata:
       labels:
-        app: echo-prod
+        app: stable
     spec:
       containers:
-        - name: echo-prod
+        - name: stable
           image: sreemaish/marvelapp:5.0
           ports:
             - name: http
@@ -23,7 +23,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: echo-prod
+  name: stable
 spec:
   ports:
     - name: http
@@ -31,4 +31,4 @@ spec:
       protocol: TCP
       targetPort: http
   selector:
-    app: echo-prod
+    app: stable
